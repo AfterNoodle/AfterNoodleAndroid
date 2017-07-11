@@ -28,18 +28,18 @@ public class MainActivity extends AppCompatActivity {
             Fragment selFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_store:
-                    selFragment = StoreCategoryFragment.newInstance();
-                    nStoreCategoryFragment();
+                    selFragment = new StoreCategoryFragment();
+                    //nStoreCategoryFragment();
 
                     break;
                 case R.id.navigation_living:
-                    selFragment = LivingCategoryFragment.newInstance();
+                    selFragment = new LivingCategoryFragment();
                     break;
                 case R.id.navigation_bookmark:
-                    selFragment = BookmarkFragment.newInstance();
+                    selFragment = new BookmarkFragment();
                     break;
                 case R.id.navigation_setting:
-                    selFragment = SettingFragment.newInstance();
+                    selFragment = new SettingFragment();
                     break;
             }
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         // activity_main의 contentMain fragment의 초기값을 storeCategory로 초기화 시켜주기
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.contentMain, LivingCategoryFragment.newInstance());
+        transaction.replace(R.id.contentMain,new StoreCategoryFragment());
         transaction.commit();
 
 

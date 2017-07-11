@@ -28,25 +28,28 @@ public class StoreCategoryFragment extends Fragment {
         StoreCategoryFragment fragment = new StoreCategoryFragment();
         return fragment;
     }
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        recyclerView = (RecyclerView) view.findViewById(R.id.listStoreCategory);
-
-        recyclerView.setHasFixedSize(true);
-
-        layoutManager = new LinearLayoutManager(mContext);
-        recyclerView.setLayoutManager(layoutManager);
-
-        Adapter = new StoreCategoryAdapter(items,mContext);
-        recyclerView.setAdapter(Adapter);
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getContext();
 //        recyclerView = (RecyclerView) recyclerView.findViewById(R.id.listStoreCategory);
-        recyclerView = ((MainActivity)getActivity()).nStoreCategoryFragment();
+
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        View view = inflater.inflate(R.layout.fragment_store_category,container,false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.listStoreCategory);
+//
+//        layoutManager = new LinearLayoutManager(getActivity());
+//        recyclerView.setLayoutManager(layoutManager);
+//        recyclerView.scrollToPosition(0);
+//
+//        Adapter = new StoreCategoryAdapter(items);
+//        recyclerView.setAdapter(Adapter);
+
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
@@ -62,21 +65,6 @@ public class StoreCategoryFragment extends Fragment {
 
         recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));
 
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_store_category,container,false);
-//        recyclerView = (RecyclerView) view.findViewById(R.id.listStoreCategory);
-//        recyclerView.setHasFixedSize(true);
-//
-//        layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.scrollToPosition(0);
-//
-//        Adapter = new StoreCategoryAdapter(items);
-//        recyclerView.setAdapter(Adapter);
         return view;
     }
 }
