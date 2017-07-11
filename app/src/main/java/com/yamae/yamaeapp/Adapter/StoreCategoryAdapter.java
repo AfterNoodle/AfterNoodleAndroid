@@ -37,7 +37,7 @@ public class StoreCategoryAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
-//        ((ViewHolder)holder).imgStrCat.setImageResource(Integer.parseInt(mItems.get(position).toString()));
+        ((ViewHolder)holder).imgStrCat.setImageResource(mItems.get(position).getIcon());
         ((ViewHolder)holder).txtStrName.setText((mItems.get(position).getCatTitle()));
 
     }

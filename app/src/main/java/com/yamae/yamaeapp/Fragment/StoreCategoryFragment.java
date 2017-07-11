@@ -28,10 +28,7 @@ public class StoreCategoryFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     List<StoreCategoryItem> items;
 
-    public static StoreCategoryFragment newInstance(){
-        StoreCategoryFragment fragment = new StoreCategoryFragment();
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

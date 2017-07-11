@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_store:
                     selFragment = new StoreCategoryFragment();
-                    //nStoreCategoryFragment();
-
                     break;
                 case R.id.navigation_living:
                     selFragment = new LivingCategoryFragment();
@@ -50,11 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
-    public RecyclerView nStoreCategoryFragment(){
-        setContentView(R.layout.fragment_store_category);
-        RecyclerView recStrCat = (RecyclerView) findViewById(R.id.listStoreCategory);
-        return recStrCat;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
