@@ -1,4 +1,4 @@
-package com.yamae.yamaeapp;
+package com.yamae.yamaeapp.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.yamae.yamaeapp.R;
+import com.yamae.yamaeapp.Adapter.StoreCategoryAdapter;
+import com.yamae.yamaeapp.Item.StoreCategoryItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +37,6 @@ public class StoreCategoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getContext();
-//        recyclerView = (RecyclerView) recyclerView.findViewById(R.id.listStoreCategory);
 
     }
 
@@ -42,13 +45,6 @@ public class StoreCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_store_category,container,false);
         recyclerView = (RecyclerView) view.findViewById(R.id.listStoreCategory);
-//
-//        layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//        recyclerView.scrollToPosition(0);
-//
-//        Adapter = new StoreCategoryAdapter(items);
-//        recyclerView.setAdapter(Adapter);
 
 
         recyclerView.setHasFixedSize(true);

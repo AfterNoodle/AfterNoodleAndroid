@@ -1,4 +1,4 @@
-package com.yamae.yamaeapp;
+package com.yamae.yamaeapp.Item;
 
 import android.graphics.drawable.Drawable;
 
@@ -10,10 +10,10 @@ public class StoreCategoryItem {
     int icon;
     String CatTitle;
 
-    int getIcon(){return icon;}
-    String getCatTitle(){return CatTitle;}
+    public int getIcon(){return icon;}
+    public String getCatTitle(){return CatTitle;}
 
-    StoreCategoryItem(int icon, String CatTitle){
+    public StoreCategoryItem(int icon, String CatTitle){
         this.icon = icon;
         this.CatTitle = CatTitle;
     }

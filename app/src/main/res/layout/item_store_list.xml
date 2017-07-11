@@ -11,25 +11,37 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp">
         <ImageView
-            android:id="@+id/imgStoreCategory"
+            android:id="@+id/imgStore"
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:paddingRight="20dp"
             android:src="@mipmap/ic_launcher_round"/>
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtStoreItem"
+                android:id="@+id/txtStoreName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CategoryTitle"
-                android:textSize="@dimen/textsize_m"
-                />
+                android:text="Store Name"
+                android:textSize="@dimen/textsize_m"/>
+            <TextView
+                android:id="@+id/txtStrDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Store Description"
+                android:textSize="@dimen/textsize_s"
+                android:layout_marginTop="5dp"/>
         </LinearLayout>
+        <ImageButton
+            android:id="@+id/btBookmark"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end|center_vertical"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

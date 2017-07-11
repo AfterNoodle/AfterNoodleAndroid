@@ -1,16 +1,17 @@
-package com.yamae.yamaeapp;
+package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.ViewHolder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.yamae.yamaeapp.R;
+import com.yamae.yamaeapp.Item.StoreCategoryItem;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -37,7 +38,7 @@ public class StoreCategoryAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position){
 //        ((ViewHolder)holder).imgStrCat.setImageResource(Integer.parseInt(mItems.get(position).toString()));
-        ((ViewHolder)holder).txtStrName.setText(mItems.get(position).toString());
+        ((ViewHolder)holder).txtStrName.setText((mItems.get(position).getCatTitle()));
 
     }
 

@@ -1,7 +1,6 @@
-package com.yamae.yamaeapp;
+package com.yamae.yamaeapp.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -10,11 +9,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.yamae.yamaeapp.Fragment.BookmarkFragment;
+import com.yamae.yamaeapp.Fragment.LivingCategoryFragment;
+import com.yamae.yamaeapp.Fragment.SettingFragment;
+import com.yamae.yamaeapp.Fragment.StoreCategoryFragment;
+import com.yamae.yamaeapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

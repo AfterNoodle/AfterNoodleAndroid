@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/txtLivTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="Review Title"
+            android:textSize="@dimen/textsize_m" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp">
+            <TextView
+                android:id="@+id/txtLivWriter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Writer"
+                android:textSize="@dimen/textsize_s"/>
+            <TextView
+                android:id="@+id/txtRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="100dp"
+                android:textSize="@dimen/textsize_s"
+                android:text="0.0"/>
+            <ImageView
+                android:id="@+id/imgFiveStar"
+                android:layout_width="wrap_content"
+                android:layout_height="12dp"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_home_black_24dp"/>
+        </FrameLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border"/>
+</LinearLayout>

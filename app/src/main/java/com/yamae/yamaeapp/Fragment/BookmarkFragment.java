@@ -1,10 +1,12 @@
-package com.yamae.yamaeapp;
+package com.yamae.yamaeapp.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.yamae.yamaeapp.R;
 
 /**
  * Created by HyunWook Kim on 2017-07-07.
