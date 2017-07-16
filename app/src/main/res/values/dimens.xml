@@ -5,4 +5,15 @@
     <dimen name="textsize_l">20sp</dimen>
     <dimen name="textsize_m">16sp</dimen>
     <dimen name="textsize_s">12sp</dimen>
+    <dimen name="elev_popup">24dp</dimen>
+    <dimen name="elev_drawer">16dp</dimen>
+    <dimen name="elev_fab_pressed">12dp</dimen>
+    <dimen name="elev_menu">8dp</dimen>
+    <dimen name="elev_fab">6dp</dimen>
+    <dimen name="elev_toolbar">4dp</dimen>
+    <dimen name="elev_indicator">3dp</dimen>
+    <dimen name="elev_bt">2dp</dimen>
+    <dimen name="elev_searchbar">3dp</dimen>
+    <dimen name="elev_switch">1dp</dimen>
+
 </resources>

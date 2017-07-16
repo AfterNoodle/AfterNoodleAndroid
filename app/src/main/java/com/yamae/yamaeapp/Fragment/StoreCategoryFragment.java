@@ -1,6 +1,7 @@
 package com.yamae.yamaeapp.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,25 +25,21 @@ public class StoreCategoryFragment extends Fragment {
 
     Context mContext;
     RecyclerView recyclerView;
-    RecyclerView.Adapter Adapter;
+    RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
-    List<StoreCategoryItem> items;
-
+        List<StoreCategoryItem> items;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getContext();
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_store_category,container,false);
         recyclerView = (RecyclerView) view.findViewById(R.id.listStoreCategory);
-
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);

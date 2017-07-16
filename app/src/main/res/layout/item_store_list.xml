@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -42,7 +43,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="end|center_vertical"
-            android:background="@drawable/ic_home_black_24dp"/>
+            android:background="@mipmap/ic_bookmark_c192"/>
     </FrameLayout>
     <View
         android:layout_width="match_parent"
