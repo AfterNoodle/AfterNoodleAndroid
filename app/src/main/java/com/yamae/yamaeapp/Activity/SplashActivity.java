@@ -5,13 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
-import android.view.View;
 
 import com.yamae.yamaeapp.R;
-
-import static android.R.attr.delay;
 
 /**
  * Created by HyunWook Kim on 2017-07-12.

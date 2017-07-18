@@ -1,7 +1,5 @@
 package com.yamae.yamaeapp.Item;
 
-import android.support.annotation.Nullable;
-
 /**
  * Created by HyunWook Kim on 2017-07-13.
  */

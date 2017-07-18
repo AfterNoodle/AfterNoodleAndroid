@@ -1,7 +1,5 @@
 package com.yamae.yamaeapp.Item;
 
-import android.graphics.drawable.Drawable;
-
 /**
  * Created by HyunWook Kim on 2017-07-07.
  */

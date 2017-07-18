@@ -2,9 +2,7 @@ package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +77,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(itemPosition).getBookmark());
         }
         else if(holder instanceof  HeaderViewHolder) {
-            ((HeaderViewHolder) holder).imgRand.setBackgroundResource(items2.get(position).getIcon());
+            ((HeaderViewHolder) holder).imgRand.setImageResource(items2.get(position).getIcon());
             ((HeaderViewHolder) holder).txtRand.setText(items2.get(position).getCatTitle());
         }
     }
