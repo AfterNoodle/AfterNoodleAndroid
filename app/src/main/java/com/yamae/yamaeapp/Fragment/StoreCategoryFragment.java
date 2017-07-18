@@ -47,10 +47,10 @@ public class StoreCategoryFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         items = new ArrayList<>();
-        items.add(new StoreCategoryItem(R.drawable.ic_dashboard_black_24dp,"전체"));
-        items.add(new StoreCategoryItem(R.drawable.ic_dashboard_black_24dp,"치킨"));
-        items.add(new StoreCategoryItem(R.drawable.ic_dashboard_black_24dp,"식사"));
-        items.add(new StoreCategoryItem(R.drawable.ic_dashboard_black_24dp,"야식"));
+        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"전체"));
+        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"치킨"));
+        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"식사"));
+        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"야식"));
 
 
         recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));
