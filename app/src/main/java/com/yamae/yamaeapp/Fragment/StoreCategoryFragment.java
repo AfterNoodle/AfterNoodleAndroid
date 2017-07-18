@@ -54,7 +54,6 @@ public class StoreCategoryFragment extends Fragment {
         items.add(new StoreCategoryItem(R.drawable.ic_dashboard_black_24dp,"야식"));
 
 
-
         recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));
 
         return view;

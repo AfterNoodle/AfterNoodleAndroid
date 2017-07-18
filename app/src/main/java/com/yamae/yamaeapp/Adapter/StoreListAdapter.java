@@ -68,13 +68,15 @@ public class StoreListAdapter extends RecyclerView.Adapter{
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        final int itemPosition = position;
-
         if(holder instanceof BodyViewHolder) {
-            ((BodyViewHolder) holder).imgStr.setImageResource(items.get(position).getIcon());
-            ((BodyViewHolder) holder).txtStrName.setText((items.get(position).getStoreName()));
-            ((BodyViewHolder) holder).txtStrDesc.setText((items.get(position).getStoreDesc()));
-            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(position).getBookmark());
+
+            final int itemPosition = position-1;    //0번째가 헤더. 7개의 아이템이 들어가면 1~8까지의 position을 잡게 됨.
+                                                    // 따라서 body에서 값을 가져다 쓸 때 -1을 해줘야 오버플로우 일으키지 않고 list에서 아이템을 불러옴
+
+            ((BodyViewHolder) holder).imgStr.setImageResource(items.get(itemPosition).getIcon());
+            ((BodyViewHolder) holder).txtStrName.setText((items.get(itemPosition).getStoreName()));
+            ((BodyViewHolder) holder).txtStrDesc.setText((items.get(itemPosition).getStoreDesc()));
+            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(itemPosition).getBookmark());
         }
         else if(holder instanceof  HeaderViewHolder) {
             ((HeaderViewHolder) holder).imgRand.setBackgroundResource(items2.get(position).getIcon());
