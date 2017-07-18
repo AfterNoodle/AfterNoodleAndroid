@@ -2,11 +2,13 @@ package com.yamae.yamaeapp.Activity;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +20,6 @@ import com.yamae.yamaeapp.Fragment.LivingCategoryFragment;
 import com.yamae.yamaeapp.Fragment.SettingFragment;
 import com.yamae.yamaeapp.Fragment.StoreCategoryFragment;
 import com.yamae.yamaeapp.R;
-import com.yamae.yamaeapp.Java.ToolBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     toolbar.setTitle(R.string.title_setting);
                     break;
             }
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.contentMain, selFragment);
             transaction.commit();
             return true;
@@ -64,13 +65,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        // toolbar 설정
         toolbar = (Toolbar) findViewById(R.id.defaultToolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(R.string.title_store);
         toolbar.setTitleTextColor(Color.WHITE);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         // activity_main의 contentMain fragment의 초기값을 storeCategory로 초기화 시켜주기
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.contentMain,new StoreCategoryFragment());
         transaction.commit();
 

@@ -1,8 +1,10 @@
 package com.yamae.yamaeapp.Fragment;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +30,7 @@ public class BookmarkFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     Context mContext;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -44,7 +47,7 @@ public class BookmarkFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         items = new ArrayList<>();
-        items.add(new BookmarkItem(R.drawable.ic_dashboard_black_24dp,"고모네","양도 거지같은데 배달도 안돼요!"));
+        items.add(new BookmarkItem(R.mipmap.logo_rounded,R.mipmap.ic_bookmark_c192,"고모네","양도 거지같은데 배달도 안돼요!"));
         adapter = new BookmarkAdapter(items, mContext);
         recyclerView.setAdapter(adapter);
 

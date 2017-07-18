@@ -5,15 +5,17 @@ package com.yamae.yamaeapp.Item;
  */
 
 public class BookmarkItem {
-    int icon;
+    int icon, bookmark;
     String StrName, StrDesc;
 
     public int getIcon(){return icon;}
     public String getStrName(){return StrName;}
     public String getStrDesc(){return StrDesc;}
+    public int getBookmark(){ return bookmark;}
 
-    public BookmarkItem(int icon, String StrName, String StrDesc){
+    public BookmarkItem(int icon,int bookmark, String StrName, String StrDesc){
         this.icon=icon;
+        this.bookmark = bookmark;
         this.StrName=StrName;
         this.StrDesc=StrDesc;
     }

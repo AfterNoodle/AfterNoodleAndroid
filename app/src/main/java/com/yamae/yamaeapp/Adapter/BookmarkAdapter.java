@@ -46,6 +46,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
         ((ViewHolder)holder).imgStr.setImageResource(items.get(position).getIcon());
         ((ViewHolder)holder).txtStrName.setText(items.get(position).getStrName());
         ((ViewHolder)holder).txtStrDesc.setText(items.get(position).getStrDesc());
+        ((ViewHolder)holder).btBookmark.setBackgroundResource(items.get(position).getBookmark());
         ((ViewHolder)holder).btBookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
