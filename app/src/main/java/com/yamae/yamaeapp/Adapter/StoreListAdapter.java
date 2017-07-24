@@ -29,6 +29,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
     List<StoreListItem> items;
     List<StoreCategoryItem> items2;
     Activity activity;
+    boolean like = false;
 
     private final int BODY = 0;
     private final int HEADER  = -1;
@@ -64,17 +65,34 @@ public class StoreListAdapter extends RecyclerView.Adapter{
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
         if(holder instanceof BodyViewHolder) {
 
             final int itemPosition = position-1;    //0번째가 헤더. 7개의 아이템이 들어가면 1~8까지의 position을 잡게 됨.
                                                     // 따라서 body에서 값을 가져다 쓸 때 -1을 해줘야 오버플로우 일으키지 않고 list에서 아이템을 불러옴
 
+
             ((BodyViewHolder) holder).imgStr.setImageResource(items.get(itemPosition).getIcon());
             ((BodyViewHolder) holder).txtStrName.setText((items.get(itemPosition).getStoreName()));
             ((BodyViewHolder) holder).txtStrDesc.setText((items.get(itemPosition).getStoreDesc()));
             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(itemPosition).getBookmark());
+            ((BodyViewHolder) holder).btBookmark.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    if(like==true) {
+                        ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_empty_c192);
+                        like = false;
+                    }
+                    else {
+                        ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_c192);
+                        like = true;
+                    }
+
+                }
+            });
         }
         else if(holder instanceof  HeaderViewHolder) {
             ((HeaderViewHolder) holder).imgRand.setImageResource(items2.get(position).getIcon());

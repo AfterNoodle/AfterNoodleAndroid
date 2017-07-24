@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     Context mContext;
     Toolbar toolbar;
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -32,19 +31,15 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_store:
                     selFragment = new StoreCategoryFragment();
-                    toolbar.setTitle(R.string.title_store);
                     break;
                 case R.id.navigation_living:
                     selFragment = new LivingCategoryFragment();
-                    toolbar.setTitle(R.string.title_living);
                     break;
                 case R.id.navigation_bookmark:
                     selFragment = new BookmarkFragment();
-                    toolbar.setTitle(R.string.title_bookmark);
                     break;
                 case R.id.navigation_setting:
                     selFragment = new SettingFragment();
-                    toolbar.setTitle(R.string.title_setting);
                     break;
             }
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -66,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.removeShiftMode(navigation);
 
-        // toolbar 설정
-        toolbar = (Toolbar) findViewById(R.id.defaultToolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setTitle(R.string.title_store);
-        toolbar.setTitleTextColor(Color.WHITE);
+//        // toolbar 설정
+//        toolbar = (Toolbar) findViewById(R.id.defaultToolbar);
+//        setSupportActionBar(toolbar);
+//        toolbar.setTitle(R.string.title_store);
+//        toolbar.setTitleTextColor(Color.WHITE);
 
         // activity_main의 contentMain fragment의 초기값을 storeCategory로 초기화 시켜주기
         FragmentTransaction transaction = getFragmentManager().beginTransaction();

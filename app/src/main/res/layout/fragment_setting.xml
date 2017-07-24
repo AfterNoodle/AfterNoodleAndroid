@@ -3,9 +3,83 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <include
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title_setting"/>
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar_default"/>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgUserProfile"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@mipmap/logo_rounded"/>
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@mipmap/ic_edit_c192"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="20dp"
+                android:elevation="@dimen/elev_bt"/>
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_xl"
+                android:text="John Smith"
+                android:layout_marginLeft="110dp"
+                android:layout_gravity="center_vertical"/>
+
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border"/>
+
+        <LinearLayout
+            android:id="@+id/btEditName"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingLeft="20dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/ic_edit_c192"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_l"
+                android:layout_marginLeft="40dp"
+                android:text="이름수정"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/btLogout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:paddingLeft="20dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/ic_clock_c192"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_l"
+                android:layout_marginLeft="40dp"
+                android:text="로그아웃"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
 
 </LinearLayout>

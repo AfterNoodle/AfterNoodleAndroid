@@ -6,4 +6,5 @@
     <color name="textColor">#FFFFFF</color>
     <color name="white">#ffffff</color>
     <color name="border">#dddddd</color>
+    <color name="dark">#111</color>
 </resources>

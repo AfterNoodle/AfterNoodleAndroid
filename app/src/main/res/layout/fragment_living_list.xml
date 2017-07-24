@@ -3,9 +3,16 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar_default"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:id="@+id/listLiv">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -16,5 +23,6 @@
         android:layout_gravity="bottom|right"
         android:layout_margin="20dp"
         android:background="@color/colorPrimary"
-        android:src="@mipmap/ic_write_w192"/>
+        android:src="@mipmap/ic_write_w192"
+        android:translationZ="@dimen/elev_fab_pressed"/>
 </FrameLayout>
