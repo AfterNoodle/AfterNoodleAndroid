@@ -17,12 +17,12 @@
     </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:elevation="@dimen/elev_fab"
         android:layout_gravity="bottom|right"
         android:layout_margin="20dp"
+        android:backgroundTint="@color/colorPrimary"
         android:background="@color/colorPrimary"
-        android:src="@mipmap/ic_write_w192"
-        android:translationZ="@dimen/elev_fab_pressed"/>
+        android:src="@mipmap/ic_write_w192"/>
 </FrameLayout>

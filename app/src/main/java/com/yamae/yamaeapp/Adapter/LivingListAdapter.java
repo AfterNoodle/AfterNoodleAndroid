@@ -1,6 +1,8 @@
 package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yamae.yamaeapp.Fragment.LivingDetailFragment;
+import com.yamae.yamaeapp.Fragment.LivingListFragment;
 import com.yamae.yamaeapp.Item.LivingListItem;
 import com.yamae.yamaeapp.Java.RateImage;
 import com.yamae.yamaeapp.R;
@@ -52,6 +57,15 @@ public class LivingListAdapter extends RecyclerView.Adapter{
         ((ViewHolder)holder).txtLivWriter.setText(items.get(position).getReviewWriter());
         ((ViewHolder)holder).txtRate.setText(rate+"");
         ((ViewHolder)holder).imgRate.setImageResource(ri.getRateColorImage(items.get(position).getRate()));
+        ((ViewHolder)holder).itemLiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment selFragment = new LivingDetailFragment();
+                FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+                ft.replace(R.id.contentMain, selFragment);
+                ft.commit();
+            }
+        });
 
     }
 
@@ -60,6 +74,7 @@ public class LivingListAdapter extends RecyclerView.Adapter{
         @BindView(R.id.txtLivWriter) TextView txtLivWriter;
         @BindView(R.id.txtRate) TextView txtRate;
         @BindView(R.id.imgFiveStar) ImageView imgRate;
+        @BindView(R.id.itemLiv) LinearLayout itemLiv;
         ViewHolder(View view){
             super(view);
             ButterKnife.bind(this, view);

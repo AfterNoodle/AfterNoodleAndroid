@@ -4,18 +4,20 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/itemLiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp">
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp">
         <TextView
             android:id="@+id/txtLivTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:text="Review Title"
-            android:textSize="@dimen/textsize_m" />
+            android:textSize="@dimen/textsize_m"
+            android:textColor="@color/dark"/>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
