@@ -1,15 +1,20 @@
 package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yamae.yamaeapp.Fragment.LivingDetailFragment;
+import com.yamae.yamaeapp.Fragment.StoreDetailFragment;
 import com.yamae.yamaeapp.Item.StoreCategoryItem;
 import com.yamae.yamaeapp.Item.StoreListItem;
 import com.yamae.yamaeapp.R;
@@ -93,6 +98,15 @@ public class StoreListAdapter extends RecyclerView.Adapter{
 
                 }
             });
+            ((BodyViewHolder)holder).itemStrList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment selFragment = new StoreDetailFragment();
+                    FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
+                    ft.replace(R.id.contentMain, selFragment);
+                    ft.commit();
+                }
+            });
         }
         else if(holder instanceof  HeaderViewHolder) {
             ((HeaderViewHolder) holder).imgRand.setImageResource(items2.get(position).getIcon());
@@ -105,6 +119,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
         @BindView(R.id.txtStoreName) TextView txtStrName;
         @BindView(R.id.txtStrDesc) TextView txtStrDesc;
         @BindView(R.id.btBookmark) ImageButton btBookmark;
+        @BindView(R.id.itemStrList) FrameLayout itemStrList;
         BodyViewHolder(View view){
             super(view);
             ButterKnife.bind(this, view);

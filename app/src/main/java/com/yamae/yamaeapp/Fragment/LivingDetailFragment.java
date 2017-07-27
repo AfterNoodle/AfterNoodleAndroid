@@ -22,7 +22,6 @@ import com.yamae.yamaeapp.R;
 public class LivingDetailFragment extends Fragment {
 
     Context mContext;
-    Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
