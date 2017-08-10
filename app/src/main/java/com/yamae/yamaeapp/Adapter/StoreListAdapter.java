@@ -61,7 +61,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_list,null);
             return new BodyViewHolder(v);
         }
-        else if(viewType==HEADER){
+        else if(viewType==HEADER){  // 리스트 맨위에 랜덤 아이템
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_category,null);
             return new HeaderViewHolder(v);
         }
@@ -82,7 +82,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
             ((BodyViewHolder) holder).txtStrName.setText((items.get(itemPosition).getStoreName()));
             ((BodyViewHolder) holder).txtStrDesc.setText((items.get(itemPosition).getStoreDesc()));
             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(itemPosition).getBookmark());
-            ((BodyViewHolder) holder).btBookmark.setOnClickListener(new View.OnClickListener() {
+            ((BodyViewHolder) holder).btBookmark.setOnClickListener(new View.OnClickListener() {    // 북마크 버튼을 눌렀을 때 이미지 바꾸기0
 
                 @Override
                 public void onClick(View v) {

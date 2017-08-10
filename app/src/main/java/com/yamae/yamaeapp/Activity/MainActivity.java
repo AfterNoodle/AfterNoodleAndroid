@@ -3,6 +3,7 @@ package com.yamae.yamaeapp.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.app.Fragment;
@@ -22,12 +23,16 @@ public class MainActivity extends AppCompatActivity {
 
     Context mContext;
     Toolbar toolbar;
+    Fragment selFragment = null;
+//    Fragment moveFragment;
+
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_store:
                     selFragment = new StoreCategoryFragment();
@@ -50,12 +55,25 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+//    @Override
+//    public void onSaveInstanceState(Bundle outState) {
+//        moveFragment = selFragment;
+//        super.onSaveInstanceState(outState);
+//    }
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mContext=this;
+        mContext = this;
         super.onCreate(savedInstanceState);
+
+//        if (savedInstanceState != null) {
+//           selFragment = moveFragment;
+//
+//        }
+
+
         setContentView(R.layout.activity_main);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
