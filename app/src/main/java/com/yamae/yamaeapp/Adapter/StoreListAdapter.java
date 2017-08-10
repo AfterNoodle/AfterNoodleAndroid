@@ -1,9 +1,7 @@
 package com.yamae.yamaeapp.Adapter;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yamae.yamaeapp.Fragment.LivingDetailFragment;
-import com.yamae.yamaeapp.Fragment.StoreDetailFragment;
+import com.yamae.yamaeapp.Activity.StoreDetailActivity;
+import com.yamae.yamaeapp.Activity.StoreListActivity;
 import com.yamae.yamaeapp.Item.StoreCategoryItem;
 import com.yamae.yamaeapp.Item.StoreListItem;
 import com.yamae.yamaeapp.R;
@@ -33,8 +31,8 @@ public class StoreListAdapter extends RecyclerView.Adapter{
     Context mContext;
     List<StoreListItem> items;
     List<StoreCategoryItem> items2;
-    Activity activity;
     boolean like = false;
+    Intent goNext;
 
     private final int BODY = 0;
     private final int HEADER  = -1;
@@ -43,7 +41,6 @@ public class StoreListAdapter extends RecyclerView.Adapter{
         this.items= items;
         this.items2=items2;
         this.mContext = mContext;
-        activity = (Activity)mContext;
     }
 
     @Override
@@ -101,10 +98,12 @@ public class StoreListAdapter extends RecyclerView.Adapter{
             ((BodyViewHolder)holder).itemStrList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment selFragment = new StoreDetailFragment();
-                    FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-                    ft.replace(R.id.contentMain, selFragment);
-                    ft.commit();
+                    goNext = new Intent(mContext, StoreDetailActivity.class);
+                    goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    goNext.putExtra("Title",items.get(position).getStoreName());
+                    goNext.putExtra("Desc",items.get(position).getStoreDesc());
+                    goNext.putExtra("bookmark",items.get(position).getBookmark());
+                    mContext.startActivity(goNext);
                 }
             });
         }

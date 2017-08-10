@@ -1,6 +1,5 @@
-package com.yamae.yamaeapp.Fragment;
+package com.yamae.yamaeapp.Activity;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,9 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.yamae.yamaeapp.Adapter.LivingListAdapter;
 import com.yamae.yamaeapp.Item.LivingListItem;
@@ -25,7 +21,7 @@ import java.util.List;
  * Created by HyunWook Kim on 2017-07-24.
  */
 
-public class LivingListFragment extends Fragment{
+public class LivingListActivity extends AppCompatActivity{
 
     List<LivingListItem> items;
     Context mContext;
@@ -37,23 +33,19 @@ public class LivingListFragment extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getContext();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_living_list,container,false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.listLiv);
+        setContentView(R.layout.activity_living_list);
+        recyclerView = (RecyclerView) findViewById(R.id.listLiv);
         recyclerView.setHasFixedSize(true);
+        mContext=LivingListActivity.this;
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
 
         // toolbar 설정
-        toolbar = (Toolbar) view.findViewById(R.id.defaultToolbar);
-        AppCompatActivity appToolbar = (AppCompatActivity) getActivity();
-        appToolbar.setSupportActionBar(toolbar);
+//        toolbar = (Toolbar) findViewById(R.id.defaultToolbar);
+//        AppCompatActivity appToolbar = (AppCompatActivity) mContext;
+//        appToolbar.setSupportActionBar(toolbar);
 //        appToolbar.setTitle(R.string.title_store);
-        appToolbar.setTitleColor(Color.WHITE);
+//        appToolbar.setTitleColor(Color.WHITE);
 
         items = new ArrayList<>();
         items.add(new LivingListItem("현대아파트 103동 301호","김현욱",5));
@@ -66,6 +58,5 @@ public class LivingListFragment extends Fragment{
         items.add(new LivingListItem("독수리 요새 204호","남재희",45));
 
         recyclerView.setAdapter(new LivingListAdapter(items,mContext));
-        return view;
     }
 }

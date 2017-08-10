@@ -1,7 +1,6 @@
 package com.yamae.yamaeapp.Fragment;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;

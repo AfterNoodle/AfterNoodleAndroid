@@ -1,9 +1,8 @@
 package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yamae.yamaeapp.Fragment.LivingListFragment;
+import com.yamae.yamaeapp.Activity.LivingListActivity;
 import com.yamae.yamaeapp.Item.LivingCategoryItem;
 import com.yamae.yamaeapp.R;
 
@@ -30,6 +29,7 @@ public class LivingCategoryAdapter extends RecyclerView.Adapter {
     List<LivingCategoryItem> mItem;
     Activity activity;
     Context mContext;
+    Intent goNext;
     public LivingCategoryAdapter(List<LivingCategoryItem> mItem, Context mContext){
         this.mItem = mItem;
         activity = (Activity) mContext;
@@ -50,16 +50,16 @@ public class LivingCategoryAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ((ViewHolder)holder).imgLivCat.setImageResource(mItem.get(position).getBackImg());
         ((ViewHolder)holder).txtLivCat.setText(mItem.get(position).getTxtLivCatName());
         ((ViewHolder)holder).cardLivCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment selFragment = new LivingListFragment();
-                FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-                ft.replace(R.id.contentMain, selFragment);
-                ft.commit();
+                goNext = new Intent(mContext.getApplicationContext(),LivingListActivity.class);
+                goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                goNext.putExtra("Title",mItem.get(position).getTxtLivCatName());
+                mContext.startActivity(goNext);
             }
         });
     }

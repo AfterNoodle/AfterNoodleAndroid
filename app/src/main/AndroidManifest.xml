@@ -28,6 +28,36 @@
             android:screenOrientation="portrait"
             android:label="@string/title_store">
         </activity>
+        <activity
+            android:name=".Activity.StoreListActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".Activity.StoreDetailActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.StoreListActivity"/>
+        </activity>
+        <activity
+            android:name=".Activity.LivingListActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_store">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".Activity.LivingDetailActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_store">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.LivingListActivity"/>
+        </activity>
     </application>
 
 </manifest>

@@ -1,18 +1,14 @@
-package com.yamae.yamaeapp.Fragment;
+package com.yamae.yamaeapp.Activity;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.yamae.yamaeapp.Adapter.StoreListAdapter;
 import com.yamae.yamaeapp.Item.StoreCategoryItem;
@@ -22,11 +18,12 @@ import com.yamae.yamaeapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by HyunWook Kim on 2017-07-13.
  */
 
-public class StoreListFragment extends Fragment {
+public class StoreListActivity extends AppCompatActivity {
 
     List<StoreListItem> items;
     List<StoreCategoryItem> items2;
@@ -40,24 +37,18 @@ public class StoreListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_store_list,container,false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.listStore);
+        setContentView(R.layout.activity_store_list);
+        recyclerView = (RecyclerView) findViewById(R.id.listStore);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
+        mContext=StoreListActivity.this;
 
         // toolbar 설정
-        toolbar = (Toolbar) view.findViewById(R.id.defaultToolbar);
-        AppCompatActivity appToolbar = (AppCompatActivity) getActivity();
+        toolbar = (Toolbar) findViewById(R.id.defaultToolbar);
+        AppCompatActivity appToolbar = (AppCompatActivity) mContext;
         appToolbar.setSupportActionBar(toolbar);
-//        appToolbar.setTitle(R.string.title_store);
+        appToolbar.setTitle(R.string.title_store);
         appToolbar.setTitleColor(Color.WHITE);
 
         items2 = new ArrayList<>();
@@ -74,6 +65,5 @@ public class StoreListFragment extends Fragment {
 
 
         recyclerView.setAdapter(new StoreListAdapter(items,items2,mContext));
-        return view;
     }
 }

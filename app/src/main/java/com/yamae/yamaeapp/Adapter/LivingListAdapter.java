@@ -1,20 +1,17 @@
 package com.yamae.yamaeapp.Adapter;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.yamae.yamaeapp.Fragment.LivingDetailFragment;
-import com.yamae.yamaeapp.Fragment.LivingListFragment;
+import com.yamae.yamaeapp.Activity.LivingDetailActivity;
 import com.yamae.yamaeapp.Item.LivingListItem;
 import com.yamae.yamaeapp.Java.RateImage;
 import com.yamae.yamaeapp.R;
@@ -34,6 +31,7 @@ public class LivingListAdapter extends RecyclerView.Adapter{
     Context mContext;
     List<LivingListItem> items;
     Activity activity;
+    Intent goNext;
 
     public LivingListAdapter(List<LivingListItem> items, Context mContext){ //생성자
         this.items= items;
@@ -51,7 +49,7 @@ public class LivingListAdapter extends RecyclerView.Adapter{
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
 
         RateImage ri = new RateImage();     // int 타입의 변수 rate 값을 받으면 그 값에 맞게 이미지를 내보내 주는 클래스
-        double rate;
+        final double rate;
         rate = items.get(position).getRate() * 0.1;
         ((ViewHolder)holder).txtLivTitle.setText(items.get(position).getReviewTitle());
         ((ViewHolder)holder).txtLivWriter.setText(items.get(position).getReviewWriter());
@@ -60,10 +58,12 @@ public class LivingListAdapter extends RecyclerView.Adapter{
         ((ViewHolder)holder).itemLiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment selFragment = new LivingDetailFragment();
-                FragmentTransaction ft = activity.getFragmentManager().beginTransaction();
-                ft.replace(R.id.contentMain, selFragment);
-                ft.commit();
+                goNext = new Intent(mContext,LivingDetailActivity.class);
+                goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                goNext.putExtra("Title",items.get(position).getReviewTitle());
+                goNext.putExtra("Writer",items.get(position).getReviewWriter());
+                goNext.putExtra("Rate",rate);
+                mContext.startActivity(goNext);
             }
         });
 
