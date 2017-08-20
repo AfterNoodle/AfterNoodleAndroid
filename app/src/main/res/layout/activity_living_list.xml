@@ -24,7 +24,6 @@
         android:elevation="@dimen/elev_fab"
         android:layout_gravity="bottom|right"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:src="@mipmap/ic_write_w192"/>
 </FrameLayout>

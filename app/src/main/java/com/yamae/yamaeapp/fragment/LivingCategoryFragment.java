@@ -30,7 +30,6 @@ public class LivingCategoryFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     List<LivingCategoryItem> mItem;
-    Toolbar toolbar;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -45,11 +44,6 @@ public class LivingCategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main,container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
-        // toolbar 설정
-        toolbar = (Toolbar) view.findViewById(R.id.defaultToolbar);
-        AppCompatActivity appToolbar = (AppCompatActivity) getActivity();
-        appToolbar.setSupportActionBar(toolbar);
-        appToolbar.setTitle(R.string.title_living);
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);

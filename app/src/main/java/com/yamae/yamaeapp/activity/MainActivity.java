@@ -66,15 +66,19 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_store:
+                    toolbar.setTitle("식사");
                     selFragment = new StoreCategoryFragment();
                     break;
                 case R.id.navigation_living:
+                    toolbar.setTitle("집");
                     selFragment = new LivingCategoryFragment();
                     break;
                 case R.id.navigation_bookmark:
+                    toolbar.setTitle("즐겨찾기");
                     selFragment = new BookmarkFragment();
                     break;
                 case R.id.navigation_setting:
+                    toolbar.setTitle("설정");
                     selFragment = new SettingFragment();
                     break;
             }

@@ -29,8 +29,6 @@ public class StoreCategoryFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     List<StoreCategoryItem> items;
-    Toolbar toolbar;
-
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override

@@ -33,11 +33,7 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
         // toolbar 설정
-        toolbar = (android.support.v7.widget.Toolbar) view.findViewById(R.id.defaultToolbar);
-        AppCompatActivity appToolbar = (AppCompatActivity) getActivity();
-        appToolbar.setSupportActionBar(toolbar);
-        appToolbar.setTitle(R.string.title_setting);
-        appToolbar.setTitleColor(Color.WHITE);
+
 
         return view;
     }
