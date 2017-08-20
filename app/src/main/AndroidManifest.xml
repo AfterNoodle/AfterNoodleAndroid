@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activity.SplashActivity"
+            android:name=".activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -24,39 +24,39 @@
         </activity>
 
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_store">
         </activity>
         <activity
-            android:name=".Activity.StoreListActivity"
+            android:name=".activity.StoreListActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainActivity"/>
+                android:value=".activity.MainActivity"/>
         </activity>
         <activity
-            android:name=".Activity.StoreDetailActivity"
+            android:name=".activity.StoreDetailActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.StoreListActivity"/>
+                android:value=".activity.StoreListActivity"/>
         </activity>
         <activity
-            android:name=".Activity.LivingListActivity"
+            android:name=".activity.LivingListActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_store">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainActivity"/>
+                android:value=".activity.MainActivity"/>
         </activity>
         <activity
-            android:name=".Activity.LivingDetailActivity"
+            android:name=".activity.LivingDetailActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_store">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.LivingListActivity"/>
+                android:value=".activity.LivingListActivity"/>
         </activity>
     </application>
 
