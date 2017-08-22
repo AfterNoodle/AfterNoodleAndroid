@@ -27,25 +27,16 @@ import butterknife.ButterKnife;
 
 public class LivingCategoryAdapter extends RecyclerView.Adapter {
     List<LivingCategoryItem> mItem;
-    Activity activity;
-    Context mContext;
+     Context mContext;
     Intent goNext;
+
     public LivingCategoryAdapter(List<LivingCategoryItem> mItem, Context mContext){
         this.mItem = mItem;
-        activity = (Activity) mContext;
         this.mContext = mContext;
     }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_living_category,null);
-
-        // 거지같이 match parent가 안 되는 카드뷰 너비 지정 코드
-        WindowManager wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
-        int width = wm.getDefaultDisplay().getWidth();
-        int height = wm.getDefaultDisplay().getHeight();
-        view.setLayoutParams(new CardView.LayoutParams(width,CardView.LayoutParams.MATCH_PARENT));
-        view.setLayoutParams(new CardView.LayoutParams(height,CardView.LayoutParams.WRAP_CONTENT));
-
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_living_category,parent,false);
         return new ViewHolder(view);
     }
 

@@ -30,17 +30,15 @@ public class LivingListAdapter extends RecyclerView.Adapter{
 
     Context mContext;
     List<LivingListItem> items;
-    Activity activity;
     Intent goNext;
 
     public LivingListAdapter(List<LivingListItem> items, Context mContext){ //생성자
         this.items= items;
         this.mContext = mContext;
-        activity = (Activity)mContext;
     }
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_living_list,null);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_living_list,parent,false);
         return new ViewHolder(v);
 
     }

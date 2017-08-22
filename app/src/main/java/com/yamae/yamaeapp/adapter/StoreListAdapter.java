@@ -54,11 +54,11 @@ public class StoreListAdapter extends RecyclerView.Adapter{
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType==BODY) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_list,null);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_list,parent,false);
             return new BodyViewHolder(v);
         }
         else if(viewType==HEADER){  // 리스트 맨위에 랜덤 아이템
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_category,null);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_category,parent,false);
             return new HeaderViewHolder(v);
         }
         else

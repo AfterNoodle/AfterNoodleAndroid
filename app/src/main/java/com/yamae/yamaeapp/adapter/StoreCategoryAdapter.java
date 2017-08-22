@@ -26,19 +26,17 @@ import butterknife.ButterKnife;
  */
 
 public class StoreCategoryAdapter extends RecyclerView.Adapter {
-    Activity activity;
-    List<StoreCategoryItem> mItems;
+   List<StoreCategoryItem> mItems;
     Context mContext;
     Intent goNext;
 
     public StoreCategoryAdapter(List<StoreCategoryItem> items, Context mContext){
         mItems = items;
         this.mContext = mContext;
-        activity = (Activity) mContext;
     }
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_category,null);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_store_category,parent,false);
         return new ViewHolder(v);
     }
 
@@ -51,7 +49,6 @@ public class StoreCategoryAdapter extends RecyclerView.Adapter {
         ((ViewHolder)holder).itemStrCat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                ((ViewHolder)holder).itemStrCatLayout.setBackgroundColor(0xDB4C3F);
                 goNext = new Intent(mContext.getApplicationContext(),StoreListActivity.class);
                 goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 goNext.putExtra("title",curItme.getCatTitle());
@@ -68,7 +65,7 @@ public class StoreCategoryAdapter extends RecyclerView.Adapter {
         @BindView(R.id.imgStoreCategory) ImageView imgStrCat;
         @BindView(R.id.txtStoreItem) TextView txtStrName;
         @BindView(R.id.itemStoreCategory) LinearLayout itemStrCat;
-        @BindView(R.id.itemStrCatLayout) ForegroundLinearLayout itemStrCatLayout;
+        @BindView(R.id.itemStrCatLayout) LinearLayout itemStrCatLayout;
         ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
