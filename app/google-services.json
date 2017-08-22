@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "635567913633",
+    "firebase_url": "https://afternoodle.firebaseio.com",
+    "project_id": "afternoodle",
+    "storage_bucket": "afternoodle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635567913633:android:bf1150bebb6b603b",
+        "android_client_info": {
+          "package_name": "com.yamae.yamaeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635567913633-av1ak2rh926nv56sjsjdk5paitdt5h2p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHe-ewkirQtA3lAhjBJKeLbNclCmVYq4w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
