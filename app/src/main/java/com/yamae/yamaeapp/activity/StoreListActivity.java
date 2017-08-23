@@ -68,12 +68,23 @@ public class StoreListActivity extends AppCompatActivity {
         setList();
     }
 
+    /**
+     * 리스트를 만드는 메소드
+     */
     private void setList() {
         items2 = new ArrayList<>();
         items2.add(new StoreCategoryItem(R.mipmap.ic_dice_c192,"랜덤"));
 
         items = new ArrayList<>();
 
+        getDB();
+
+    }
+
+    /**
+     * 서버에서 가게 db 가져오는 메소드
+     */
+    private void getDB() {
         RequestQueue queue = Volley.newRequestQueue(this);
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_STORE, null, new Response.Listener<JSONArray>() {
@@ -117,15 +128,20 @@ public class StoreListActivity extends AppCompatActivity {
         });
 
         queue.add(request);
-
     }
 
+    /**
+     * 처음 뷰를 선언하는 메소드
+     */
     private void init() {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
     }
 
+    /**
+     * toolbar 설정하는 메소드
+     */
     private void setToolbar() {
         // toolbar 설정
         setSupportActionBar(toolbar);

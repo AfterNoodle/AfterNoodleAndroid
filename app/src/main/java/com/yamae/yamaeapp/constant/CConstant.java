@@ -10,4 +10,9 @@ public class CConstant {
      * 카테고리별 : str + /categoryName
      */
     public static final String URL_STORE = "https://afternoodle.herokuapp.com/api/store/";
+    /**
+     * 메뉴 목록 불러오는 주소
+     * 카테고리별 : str + /categoryName
+     */
+    public static final String URL_MENU = "https://afternoodle.herokuapp.com/api/menu/";
 }
