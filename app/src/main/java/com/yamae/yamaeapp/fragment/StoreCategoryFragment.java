@@ -30,6 +30,8 @@ public class StoreCategoryFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     List<StoreCategoryItem> items;
 
+    String categories[] = {"한식","중식","양식","치킨","야식","카페","술집","랜덤"};
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,10 +51,9 @@ public class StoreCategoryFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         items = new ArrayList<>();
-        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"전체"));
-        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"치킨"));
-        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"식사"));
-        items.add(new StoreCategoryItem(R.mipmap.logo_rounded,"야식"));
+
+        for(String s : categories)
+            items.add(new StoreCategoryItem(R.mipmap.logo_rounded,s));
 
 
         recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));

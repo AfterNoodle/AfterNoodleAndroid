@@ -70,14 +70,12 @@ public class StoreListAdapter extends RecyclerView.Adapter{
 
         if(holder instanceof BodyViewHolder) {
 
-            final int itemPosition = position-1;    //0번째가 헤더. 7개의 아이템이 들어가면 1~8까지의 position을 잡게 됨.
-                                                    // 따라서 body에서 값을 가져다 쓸 때 -1을 해줘야 오버플로우 일으키지 않고 list에서 아이템을 불러옴
+            final StoreListItem curItem = items.get(position-1);
 
-
-            ((BodyViewHolder) holder).imgStr.setImageResource(items.get(itemPosition).getIcon());
-            ((BodyViewHolder) holder).txtStrName.setText((items.get(itemPosition).getStoreName()));
-            ((BodyViewHolder) holder).txtStrDesc.setText((items.get(itemPosition).getStoreDesc()));
-            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(items.get(itemPosition).getBookmark());
+            ((BodyViewHolder) holder).imgStr.setImageResource(curItem.getIcon());
+            ((BodyViewHolder) holder).txtStrName.setText(curItem.getStoreName());
+            ((BodyViewHolder) holder).txtStrDesc.setText(curItem.getStoreDesc());
+            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(curItem.getBookmark());
             ((BodyViewHolder) holder).btBookmark.setOnClickListener(new View.OnClickListener() {    // 북마크 버튼을 눌렀을 때 이미지 바꾸기0
 
                 @Override
@@ -99,16 +97,17 @@ public class StoreListAdapter extends RecyclerView.Adapter{
                 public void onClick(View v) {
                     goNext = new Intent(mContext, StoreDetailActivity.class);
                     goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    goNext.putExtra("Title",items.get(position).getStoreName());
-                    goNext.putExtra("Desc",items.get(position).getStoreDesc());
-                    goNext.putExtra("bookmark",items.get(position).getBookmark());
+                    goNext.putExtra("Title",curItem.getStoreName());
+                    goNext.putExtra("Desc",curItem.getStoreDesc());
+                    goNext.putExtra("bookmark",curItem.getBookmark());
                     mContext.startActivity(goNext);
                 }
             });
         }
         else if(holder instanceof  HeaderViewHolder) {
-            ((HeaderViewHolder) holder).imgRand.setImageResource(items2.get(position).getIcon());
-            ((HeaderViewHolder) holder).txtRand.setText(items2.get(position).getCatTitle());
+            StoreCategoryItem curItem = items2.get(0);
+            ((HeaderViewHolder) holder).imgRand.setImageResource(curItem.getIcon());
+            ((HeaderViewHolder) holder).txtRand.setText(curItem.getCatTitle());
         }
     }
 
