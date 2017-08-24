@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -51,6 +52,7 @@ public class StoreListActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
 
 
     @Override
@@ -101,6 +103,7 @@ public class StoreListActivity extends AppCompatActivity {
                         }
 
                         recyclerView.setAdapter(new StoreListAdapter(items,items2,mContext));
+                        progressBar.setVisibility(View.GONE);
                     }
                 } catch (JSONException e){
                     e.printStackTrace();
