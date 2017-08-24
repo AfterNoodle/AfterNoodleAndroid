@@ -13,7 +13,7 @@
         android:gravity="center"
         android:layout_margin="20dp">
     <EditText
-        android:id="@+id/editTextId"
+        android:id="@+id/edit_id"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:hint="ID"
@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
     <EditText
-        android:id="@+id/editTextPw"
+        android:id="@+id/edit_pw"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:hint="Password"
@@ -29,7 +29,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
     <Button
-        android:id="@+id/btLogin"
+        android:id="@+id/btn_login"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:text="로그인"
@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
     <Button
-        android:id="@+id/btSignUp"
+        android:id="@+id/btn_signup"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:text="회원가입"
@@ -45,7 +45,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
     <Button
-        android:id="@+id/btKakao"
+        android:id="@+id/btn_kakao"
         android:layout_width="280dp"
         android:layout_height="40dp"
         android:text="카카오톡으로 로그인"

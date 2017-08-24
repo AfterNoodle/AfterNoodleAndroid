@@ -25,8 +25,7 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_store">
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.StoreListActivity"
@@ -44,19 +43,22 @@
         </activity>
         <activity
             android:name=".activity.LivingListActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_store">
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity"/>
         </activity>
         <activity
             android:name=".activity.LivingDetailActivity"
-            android:screenOrientation="portrait"
-            android:label="@string/title_store">
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.LivingListActivity"/>
+        </activity>
+
+        <activity
+            android:name=".activity.SignInActivity"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
