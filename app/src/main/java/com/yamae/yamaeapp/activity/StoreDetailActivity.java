@@ -56,7 +56,7 @@ public class StoreDetailActivity extends AppCompatActivity {
     private void getDB() {
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_MENU+"2", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_MENU+getIntent.getIntExtra("id",-1), null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try{

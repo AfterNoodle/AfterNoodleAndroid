@@ -52,6 +52,7 @@ public class StoreCategoryAdapter extends RecyclerView.Adapter {
                 goNext = new Intent(mContext.getApplicationContext(),StoreListActivity.class);
                 goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 goNext.putExtra("title",curItme.getCatTitle());
+                goNext.putExtra("categoryId",curItme.getCategoryId());
                 mContext.startActivity(goNext);
 
             }

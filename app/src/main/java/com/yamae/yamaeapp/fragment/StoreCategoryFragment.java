@@ -31,6 +31,7 @@ public class StoreCategoryFragment extends Fragment {
     List<StoreCategoryItem> items;
 
     String categories[] = {"한식","중식","양식","치킨","야식","카페","술집","랜덤"};
+    String categoryIds[] = {"korean","chinese","western","chicken","night","cafe","alcohol","random"};
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -52,8 +53,8 @@ public class StoreCategoryFragment extends Fragment {
 
         items = new ArrayList<>();
 
-        for(String s : categories)
-            items.add(new StoreCategoryItem(R.mipmap.logo_rounded,s));
+        for(int i=0;i<categories.length;i++)
+            items.add(new StoreCategoryItem(R.mipmap.logo_rounded,categories[i],categoryIds[i]));
 
 
         recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));

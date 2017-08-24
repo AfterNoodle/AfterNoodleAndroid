@@ -73,7 +73,7 @@ public class StoreListActivity extends AppCompatActivity {
      */
     private void setList() {
         items2 = new ArrayList<>();
-        items2.add(new StoreCategoryItem(R.mipmap.ic_dice_c192,"랜덤"));
+        items2.add(new StoreCategoryItem(R.mipmap.ic_dice_c192,"랜덤",""));
 
         items = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class StoreListActivity extends AppCompatActivity {
     private void getDB() {
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_STORE, null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_STORE+getIntent().getStringExtra("categoryId"), null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try{
@@ -96,24 +96,11 @@ public class StoreListActivity extends AppCompatActivity {
                     Log.e("ASDf", jsonObject.toString());
                     if (jsonObject != null) {
                         for (int i = 0; i < response.length(); i++) {
-                            JSONObject o = response.getJSONObject(i);
 
-                            JSONObject curObs = new JSONObject();
-                            curObs.put("id", o.getInt("id"));
-                            curObs.put("category", o.getString("category"));
-                            curObs.put("title", o.getString("title"));
-                            curObs.put("phoneNum", o.getString("phoneNum"));
-                            curObs.put("startTime", o.getString("startTime"));
-                            curObs.put("endTime", o.getString("endTime"));
-                            curObs.put("isDelivery", o.getBoolean("isDelivery"));
-                            curObs.put("address", o.getString("address"));
-
-                            result.put(curObs);
-
-                            items.add(new StoreListItem(R.mipmap.logo_rounded, R.mipmap.ic_bookmark_empty_c192, curObs.getString("title"), "맛은 있다만 양도 가격도 창렬!"));
-
-                            recyclerView.setAdapter(new StoreListAdapter(items,items2,mContext));
+                            items.add(new StoreListItem(R.mipmap.logo_rounded, R.mipmap.ic_bookmark_empty_c192, response.getJSONObject(i)));
                         }
+
+                        recyclerView.setAdapter(new StoreListAdapter(items,items2,mContext));
                     }
                 } catch (JSONException e){
                     e.printStackTrace();

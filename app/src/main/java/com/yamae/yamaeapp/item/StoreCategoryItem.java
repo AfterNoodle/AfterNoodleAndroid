@@ -6,13 +6,19 @@ package com.yamae.yamaeapp.item;
 
 public class StoreCategoryItem {
     int icon;
-    String CatTitle;
+    String catTitle;
+    String categoryId;
 
     public int getIcon(){return icon;}
-    public String getCatTitle(){return CatTitle;}
+    public String getCatTitle(){return catTitle;}
 
-    public StoreCategoryItem(int icon, String CatTitle){
+    public String getCategoryId() {
+        return categoryId;
+    }
+
+    public StoreCategoryItem(int icon, String catTitle, String categoryId){
         this.icon = icon;
-        this.CatTitle = CatTitle;
+        this.catTitle = catTitle;
+        this.categoryId = categoryId;
     }
 }

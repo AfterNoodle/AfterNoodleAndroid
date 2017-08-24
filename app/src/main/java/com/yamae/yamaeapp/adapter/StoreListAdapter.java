@@ -73,8 +73,8 @@ public class StoreListAdapter extends RecyclerView.Adapter{
             final StoreListItem curItem = items.get(position-1);
 
             ((BodyViewHolder) holder).imgStr.setImageResource(curItem.getIcon());
-            ((BodyViewHolder) holder).txtStrName.setText(curItem.getStoreName());
-            ((BodyViewHolder) holder).txtStrDesc.setText(curItem.getStoreDesc());
+            ((BodyViewHolder) holder).txtStrName.setText(curItem.getTitle());
+            ((BodyViewHolder) holder).txtStrDesc.setText("asdfasdf");
             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(curItem.getBookmark());
             ((BodyViewHolder) holder).btBookmark.setOnClickListener(new View.OnClickListener() {    // 북마크 버튼을 눌렀을 때 이미지 바꾸기0
 
@@ -97,8 +97,9 @@ public class StoreListAdapter extends RecyclerView.Adapter{
                 public void onClick(View v) {
                     goNext = new Intent(mContext, StoreDetailActivity.class);
                     goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    goNext.putExtra("Title",curItem.getStoreName());
-                    goNext.putExtra("Desc",curItem.getStoreDesc());
+                    goNext.putExtra("Title",curItem.getTitle());
+                    goNext.putExtra("Desc","asdfasdf");
+                    goNext.putExtra("id",curItem.getId());
                     goNext.putExtra("bookmark",curItem.getBookmark());
                     mContext.startActivity(goNext);
                 }
