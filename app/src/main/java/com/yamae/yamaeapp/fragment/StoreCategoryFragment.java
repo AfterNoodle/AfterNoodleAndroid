@@ -25,7 +25,6 @@ import java.util.List;
 
 public class StoreCategoryFragment extends Fragment {
 
-    Context mContext;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     List<StoreCategoryItem> items;
@@ -33,11 +32,9 @@ public class StoreCategoryFragment extends Fragment {
     String categories[] = {"한식","중식","양식","치킨","야식","카페","술집","랜덤"};
     String categoryIds[] = {"korean","chinese","western","chicken","night","cafe","alcohol","random"};
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getContext();
 
     }
 
@@ -48,7 +45,7 @@ public class StoreCategoryFragment extends Fragment {
 
 
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(mContext);
+        layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
         items = new ArrayList<>();
@@ -57,7 +54,7 @@ public class StoreCategoryFragment extends Fragment {
             items.add(new StoreCategoryItem(R.mipmap.logo_rounded,categories[i],categoryIds[i]));
 
 
-        recyclerView.setAdapter(new StoreCategoryAdapter(items,mContext));
+        recyclerView.setAdapter(new StoreCategoryAdapter(items,getActivity()));
 
         return view;
     }

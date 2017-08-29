@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
         <FrameLayout
+            android:id="@+id/view_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -55,10 +56,12 @@
                 android:layout_gravity="center_vertical"/>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/view_logout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:paddingLeft="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"

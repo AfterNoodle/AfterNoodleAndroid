@@ -26,16 +26,13 @@ import java.util.List;
 
 public class LivingCategoryFragment extends Fragment {
 
-    Context mContext;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     List<LivingCategoryItem> mItem;
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        mContext = getContext();
 
     }
 
@@ -46,7 +43,7 @@ public class LivingCategoryFragment extends Fragment {
 
 
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(mContext);
+        layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
         mItem = new ArrayList<>();
@@ -56,7 +53,7 @@ public class LivingCategoryFragment extends Fragment {
         mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"구삼학사"));
         mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"매지기숙사"));
 
-        recyclerView.setAdapter(new LivingCategoryAdapter(mItem,mContext));
+        recyclerView.setAdapter(new LivingCategoryAdapter(mItem,getActivity()));
         return view;
     }
 }

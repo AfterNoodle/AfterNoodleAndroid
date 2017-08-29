@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.yamae.yamaeapp.activity.SignInActivity;
 import com.yamae.yamaeapp.activity.StoreDetailActivity;
 import com.yamae.yamaeapp.item.StoreCategoryItem;
 import com.yamae.yamaeapp.item.StoreListItem;
@@ -80,14 +83,21 @@ public class StoreListAdapter extends RecyclerView.Adapter{
 
                 @Override
                 public void onClick(View v) {
-
-                    if(like==true) {
-                        ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_empty_c192);
-                        like = false;
-                    }
-                    else {
-                        ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_c192);
-                        like = true;
+                    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                    FirebaseUser curUser = mAuth.getCurrentUser();
+                    if(curUser != null){       //로그인 되어있을 때
+                        if(like==true) {
+                            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_empty_c192);
+                            like = false;
+                        }
+                        else {
+                            ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_c192);
+                            like = true;
+                        }
+                    } else {    //안돼있을 때
+                        goNext = new Intent(mContext, SignInActivity.class);
+                        goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(goNext);
                     }
 
                 }

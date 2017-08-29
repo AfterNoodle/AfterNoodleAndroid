@@ -13,4 +13,6 @@ Donec sed felis ex. Cras in convallis purus, eget tempor est. Morbi id eleifend 
 Donec eu libero vel eros ornare lobortis id ac quam. Duis ornare erat orci. Nam pulvinar tristique velit a aliquet. Ut dictum augue non neque vehicula posuere. Fusce tristique aliquam ullamcorper. Vestibulum blandit, velit sed rhoncus laoreet, libero nisl consectetur mauris, sed cursus sem tellus in lacus. Aliquam condimentum iaculis nulla ac pulvinar. Donec at sodales sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
 
 Nam tristique, nibh vitae vestibulum dignissim, velit purus dapibus orci, sed ultrices metus lorem hendrerit mi. Nunc a dui lacinia, gravida diam nec, interdum orci. Sed eu diam ac ligula posuere pellentesque. Ut pretium convallis erat, pulvinar cursus velit eleifend vitae. Ut pharetra lectus quam. Nulla facilisi. Donec eget velit vitae nulla commodo vulputate. Aliquam ligula elit, efficitur vel auctor vitae, malesuada id ex. Fusce dignissim volutpat dui, a facilisis eros lobortis et.</string>
+    <string name="ok">네</string>
+    <string name="cancel">아니요</string>
 </resources>
