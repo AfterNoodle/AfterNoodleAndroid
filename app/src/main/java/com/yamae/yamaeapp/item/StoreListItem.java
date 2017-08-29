@@ -60,7 +60,7 @@ public class StoreListItem {
             this.startTime = o.getString("startTime");
             this.endTime = o.getString("endTime");
             this.address = o.getString("address");
-            this.id = o.getInt("id");
+            this.id = o.getInt("storeId");
             this.isDelivery = o.getBoolean("isDelivery");
         } catch (JSONException e) {
             e.printStackTrace();

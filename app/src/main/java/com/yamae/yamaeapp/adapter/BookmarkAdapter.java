@@ -1,6 +1,5 @@
 package com.yamae.yamaeapp.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -52,6 +51,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
         ((ViewHolder)holder).btBookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+
                 Toast.makeText(mContext, "누름", Toast.LENGTH_SHORT).show();
             }
         });
@@ -64,6 +64,7 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
                 goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 goNext.putExtra("Title",curItem.getStrName());
                 goNext.putExtra("Desc",curItem.getStrDesc());
+                goNext.putExtra("id",curItem.getStoreId());
                 goNext.putExtra("bookmark",curItem.getBookmark());
                 mContext.startActivity(goNext);
             }
