@@ -58,9 +58,9 @@ public class LivingListAdapter extends RecyclerView.Adapter{
             public void onClick(View v) {
                 goNext = new Intent(mContext,LivingDetailActivity.class);
                 goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                goNext.putExtra("Title",items.get(position).getReviewTitle());
-                goNext.putExtra("Writer",items.get(position).getReviewWriter());
-                goNext.putExtra("Rate",rate);
+                goNext.putExtra("title",items.get(position).getReviewTitle());
+                goNext.putExtra("writer",items.get(position).getReviewWriter());
+                goNext.putExtra("rate",rate);
                 mContext.startActivity(goNext);
             }
         });

@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         // toolbar 설정
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("식사");
 
         navigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.removeShiftMode(navigationView);
