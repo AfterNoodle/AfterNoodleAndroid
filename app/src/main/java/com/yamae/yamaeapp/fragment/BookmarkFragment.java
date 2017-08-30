@@ -113,7 +113,7 @@ public class BookmarkFragment extends Fragment {
                         for (int i = 0; i < response.length(); i++) {
                             items.add(new BookmarkItem(R.mipmap.logo_rounded,R.mipmap.ic_bookmark_c192,response.getJSONObject(i)));
                         }
-                        recyclerView.setAdapter( new BookmarkAdapter(items, getActivity()));
+                        recyclerView.setAdapter( new BookmarkAdapter(items, getActivity(),BookmarkFragment.this));
                         progressBar.setVisibility(View.GONE);
                         if(items.size()>0){
                             progressBar.setVisibility(View.GONE);
@@ -141,5 +141,39 @@ public class BookmarkFragment extends Fragment {
         queue.add(request);
 
         return ;
+    }
+
+    /**
+     * 즐겨찾기된 상점 지우는 메소드
+     * @param storeId 지울 store id
+     * @return 제대로 지워졌는지 체크.
+     */
+    public int removeFavStore(int storeId){
+        final int[] result = new int[1];
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_STOREFAV+curUser.getEmail()+"/"+storeId, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    if( response.getJSONObject(0).getInt("ok")==1)
+                        result[0] = 1;
+                    else
+                        result[0] = 0;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("asd","ERROR " + error.getMessage());
+
+            }
+        });
+
+        queue.add(request);
+
+        return result[0];
     }
 }

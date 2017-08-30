@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +21,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.yamae.yamaeapp.adapter.StoreListAdapter;
 import com.yamae.yamaeapp.constant.CConstant;
 import com.yamae.yamaeapp.item.StoreCategoryItem;
@@ -32,7 +35,9 @@ import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,6 +58,9 @@ public class StoreListActivity extends AppCompatActivity {
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     @BindView(R.id.progressBar) ProgressBar progressBar;
+
+    FirebaseAuth mAuth;
+    FirebaseUser curUser;
 
 
     @Override
@@ -127,6 +135,9 @@ public class StoreListActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(mContext);
         recyclerView.setLayoutManager(layoutManager);
+
+        mAuth = FirebaseAuth.getInstance();
+        curUser = mAuth.getCurrentUser();
     }
 
     /**
@@ -144,5 +155,75 @@ public class StoreListActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+
+    /**
+     * 즐겨찾기된 상점 지우는 메소드
+     * @param storeId 지울 store id
+     * @return 제대로 지워졌는지 체크.
+     */
+    public int removeFavStore(int storeId){
+        final int[] result = new int[1];
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, CConstant.URL_STOREFAV+curUser.getEmail()+"/"+storeId, null, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    if( response.getJSONObject(0).getInt("ok")==1)
+                        result[0] = 1;
+                    else
+                        result[0] = 0;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("asd","ERROR " + error.getMessage());
+
+            }
+        });
+
+        queue.add(request);
+
+        return result[0];
+    }
+
+    /**
+     *     * 즐겨찾기 상점 추가 메소드
+     * @param storeId 추가할 store id
+     * @param title 추가할 store 이름
+     */
+    public void addFavStore(final int storeId,final String title){
+        JSONObject params = new JSONObject();
+        try {
+            params.put("userId",curUser.getEmail());
+            params.put("storeId",storeId);
+            params.put("title",title);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, CConstant.URL_STOREFAV, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("asd","ERROR " + error.getMessage());
+
+            }
+        });
+
+        queue.add(request);
+
+        return;
     }
 }

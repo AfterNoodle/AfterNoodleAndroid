@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.yamae.yamaeapp.activity.SignInActivity;
 import com.yamae.yamaeapp.activity.StoreDetailActivity;
+import com.yamae.yamaeapp.activity.StoreListActivity;
 import com.yamae.yamaeapp.item.StoreCategoryItem;
 import com.yamae.yamaeapp.item.StoreListItem;
 import com.yamae.yamaeapp.R;
@@ -86,12 +87,17 @@ public class StoreListAdapter extends RecyclerView.Adapter{
                     FirebaseAuth mAuth = FirebaseAuth.getInstance();
                     FirebaseUser curUser = mAuth.getCurrentUser();
                     if(curUser != null){       //로그인 되어있을 때
-                        if(like==true) {
+                        if(like) {
                             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_empty_c192);
+
+                            ((StoreListActivity)mContext).removeFavStore(curItem.getId());
+
                             like = false;
                         }
                         else {
                             ((BodyViewHolder) holder).btBookmark.setBackgroundResource(R.mipmap.ic_bookmark_c192);
+
+                            ((StoreListActivity)mContext).addFavStore(curItem.getId(),curItem.getTitle());
                             like = true;
                         }
                     } else {    //안돼있을 때

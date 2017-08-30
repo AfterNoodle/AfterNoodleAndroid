@@ -3,6 +3,7 @@ package com.yamae.yamaeapp.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+import com.yamae.yamaeapp.activity.MainActivity;
 import com.yamae.yamaeapp.activity.StoreDetailActivity;
+import com.yamae.yamaeapp.constant.CConstant;
+import com.yamae.yamaeapp.fragment.BookmarkFragment;
 import com.yamae.yamaeapp.item.BookmarkItem;
 import com.yamae.yamaeapp.R;
+
+import org.json.JSONArray;
 
 import java.util.List;
 
@@ -29,10 +41,11 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
     List<BookmarkItem> items;
     Context mContext;
     Intent goNext;
-
-    public BookmarkAdapter(List<BookmarkItem> item, Context mContext){
-        items = item;
+    BookmarkFragment bF;
+    public BookmarkAdapter(List<BookmarkItem> item, Context mContext, BookmarkFragment bF){
+        this.items = item;
         this.mContext = mContext;
+        this.bF = bF;
     }
 
     @Override
@@ -52,7 +65,13 @@ public class BookmarkAdapter extends RecyclerView.Adapter{
             @Override
             public void onClick(View v){
 
-                Toast.makeText(mContext, "누름", Toast.LENGTH_SHORT).show();
+                int result = bF.removeFavStore(curItem.getStoreId());
+
+                if(result == 1) {
+                    items.remove(position);
+                    notifyItemRemoved(position);
+                    notifyDataSetChanged();
+                }
             }
         });
 
