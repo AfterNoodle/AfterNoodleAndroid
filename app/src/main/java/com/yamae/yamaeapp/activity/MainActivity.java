@@ -1,15 +1,21 @@
 package com.yamae.yamaeapp.activity;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.yamae.yamaeapp.constant.CConstant;
 import com.yamae.yamaeapp.fragment.BookmarkFragment;
 import com.yamae.yamaeapp.fragment.LivingCategoryFragment;
 import com.yamae.yamaeapp.fragment.SettingFragment;
@@ -21,7 +27,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-
     Context mContext;
     Fragment selFragment = null;
 

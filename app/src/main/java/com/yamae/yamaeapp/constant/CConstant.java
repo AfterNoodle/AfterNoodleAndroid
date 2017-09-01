@@ -5,6 +5,8 @@ package com.yamae.yamaeapp.constant;
  */
 
 public class CConstant {
+
+    public static final int  MY_PERMISSIONS_REQUEST_PHONE_CALL = 11;
     /**
      * 가게 목록 불러오는 주소
      * 카테고리별 : str + /categoryName

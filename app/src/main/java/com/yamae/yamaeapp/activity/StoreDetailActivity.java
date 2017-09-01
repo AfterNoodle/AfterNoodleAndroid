@@ -1,10 +1,15 @@
 package com.yamae.yamaeapp.activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +59,6 @@ public class StoreDetailActivity extends AppCompatActivity {
     @BindView(R.id.txtStrCall) TextView txtStrCall;
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     @BindView(R.id.btn_listvisible) Button btnListVisible;
-
 
     Intent getIntent;
     RecyclerView.LayoutManager layoutManager;
@@ -141,6 +146,28 @@ public class StoreDetailActivity extends AppCompatActivity {
         });
     }
 
+    @OnClick(R.id.itemStrDetCall)
+    void onPhoneClicked(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(StoreDetailActivity.this, Manifest.permission.CALL_PHONE)) {
+                Toast.makeText(mContext, "전화 권한 설정이 허가 되어있지 않습니다.", Toast.LENGTH_SHORT).show();
+
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(StoreDetailActivity.this
+                        , new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CALL_PHONE}
+                        , CConstant.MY_PERMISSIONS_REQUEST_PHONE_CALL);
+                return;
+            }
+        }else {
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(getIntent.getStringExtra("phoneNum")));
+            startActivity(intent);
+        }
+    }
+
     @OnClick(R.id.btn_listvisible)
     void onListVisibleClicked(){
         if (items.size()<1)
@@ -154,4 +181,24 @@ public class StoreDetailActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case CConstant.MY_PERMISSIONS_REQUEST_PHONE_CALL:{
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 1
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+        }
+    }
+
 }
