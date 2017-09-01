@@ -29,6 +29,8 @@ public class LivingCategoryFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     List<LivingCategoryItem> mItem;
+    String categories[] = {"현대아파트","청솔아파트","매지리","구삼학사","매지기숙사"};
+    String categoryIds[] = {"hyu","blu","mea","nin","dom"};
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -47,11 +49,8 @@ public class LivingCategoryFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         mItem = new ArrayList<>();
-        mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"현대아파트"));
-        mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"청솔아파트"));
-        mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"매지리"));
-        mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"구삼학사"));
-        mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,"매지기숙사"));
+        for(int i = 0; i< categories.length ; i++)
+            mItem.add(new LivingCategoryItem(R.mipmap.liv_cat_hyundae,categories[i],categoryIds[i]));
 
         recyclerView.setAdapter(new LivingCategoryAdapter(mItem,getActivity()));
         return view;

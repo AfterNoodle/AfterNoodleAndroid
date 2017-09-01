@@ -6,13 +6,18 @@ package com.yamae.yamaeapp.item;
 
 public class LivingCategoryItem {
     int backImg;
-    String txtLivCatName;
+    String txtLivCatName, id;
 
     public int getBackImg() { return backImg; }
     public String getTxtLivCatName() { return txtLivCatName;  }
 
-    public LivingCategoryItem(int backImg, String txtLivCatName){
+    public String getId() {
+        return id;
+    }
+
+    public LivingCategoryItem(int backImg, String txtLivCatName, String id){
         this.backImg=backImg;
         this.txtLivCatName=txtLivCatName;
+        this.id = id;
     }
 }

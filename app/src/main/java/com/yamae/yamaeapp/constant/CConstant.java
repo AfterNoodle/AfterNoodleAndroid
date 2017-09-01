@@ -17,4 +17,6 @@ public class CConstant {
     public static final String URL_MENU = "https://afternoodle.herokuapp.com/api/menu/";
 
     public static final String URL_STOREFAV = "https://afternoodle.herokuapp.com/api/storeFav/";
+
+    public static final String URL_lIVING = "https://afternoodle.herokuapp.com/api/living/";
 }

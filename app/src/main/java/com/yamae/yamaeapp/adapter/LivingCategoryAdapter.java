@@ -49,7 +49,8 @@ public class LivingCategoryAdapter extends RecyclerView.Adapter {
             public void onClick(View v) {
                 goNext = new Intent(mContext.getApplicationContext(),LivingListActivity.class);
                 goNext.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                goNext.putExtra("Title",mItem.get(position).getTxtLivCatName());
+                goNext.putExtra("category",mItem.get(position).getTxtLivCatName());
+                goNext.putExtra("categoriesId",mItem.get(position).getId());
                 mContext.startActivity(goNext);
             }
         });

@@ -2,6 +2,7 @@ package com.yamae.yamaeapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,6 +85,7 @@ public class StoreListAdapter extends RecyclerView.Adapter{
 
                 @Override
                 public void onClick(View v) {
+
                     FirebaseAuth mAuth = FirebaseAuth.getInstance();
                     FirebaseUser curUser = mAuth.getCurrentUser();
                     if(curUser != null){       //로그인 되어있을 때

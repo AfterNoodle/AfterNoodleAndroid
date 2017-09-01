@@ -48,7 +48,7 @@ public class LivingListAdapter extends RecyclerView.Adapter{
 
         RateImage ri = new RateImage();     // int 타입의 변수 rate 값을 받으면 그 값에 맞게 이미지를 내보내 주는 클래스
         final double rate;
-        rate = items.get(position).getRate() * 0.1;
+        rate = items.get(position).getRate();
         ((ViewHolder)holder).txtLivTitle.setText(items.get(position).getReviewTitle());
         ((ViewHolder)holder).txtLivWriter.setText(items.get(position).getReviewWriter());
         ((ViewHolder)holder).txtRate.setText(rate+"");
