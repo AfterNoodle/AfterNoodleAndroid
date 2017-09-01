@@ -21,62 +21,43 @@
             android:fitsSystemWindows="true"
             android:title="@string/app_name"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <FrameLayout
+            <LinearLayout
+                android:paddingLeft="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
                 android:layout_marginBottom="60dp"
                 android:orientation="vertical">
 
-
-                <TextView
-                    android:id="@+id/txtStrDetTitle"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="65dp"
-                    android:fitsSystemWindows="true"
-                    android:text="Store Name"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textsize_xl"
-                    app:layout_collapseMode="parallax" />
+                    android:layout_height="150dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="50dp">
 
+                    <TextView
+                        android:id="@+id/txtStrDetRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fitsSystemWindows="true"
+                        android:text="0.0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_l"
+                        app:layout_collapseMode="parallax" />
+                    <ImageView
+                        android:id="@+id/imgStrDetRate"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_rate35_w48" />
+                </LinearLayout>
                 <TextView
-                    android:id="@+id/txtStrDetCat"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="100dp"
-                    android:fitsSystemWindows="true"
-                    android:text="Category"
-                    android:textColor="@color/white"
+                    android:layout_height="20dp"
+                    android:text="category"
                     android:textSize="@dimen/textsize_l"
-                    app:layout_collapseMode="parallax" />
-
-                <ImageView
-                    android:id="@+id/imgStrDetRate"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|bottom"
-                    android:layout_marginRight="25dp"
-                    android:src="@mipmap/ic_rate35_w48" />
-
-                <TextView
-                    android:id="@+id/txtStrDetRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|bottom"
-                    android:layout_marginRight="110dp"
-                    android:fitsSystemWindows="true"
-                    android:text="0.0"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/textsize_l"
-                    app:layout_collapseMode="parallax" />
-            </FrameLayout>
-
+                    android:textColor="@color/white"/>
+            </LinearLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -93,7 +74,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
+        android:clipToPadding="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- 밑에 내용-->
@@ -106,7 +87,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
 
                 <FrameLayout
                     android:id="@+id/itemStrDetCall"
@@ -209,32 +192,17 @@
             <LinearLayout
                 android:id="@+id/itemLivTime"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:foreground="?android:selectableItemBackground">
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="70dp"/>
-                <ImageView
-                    android:id="@+id/imgLivTime"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:paddingRight="20dp"
-                    android:src="@mipmap/ic_clock_c192"/>
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginRight="20dp">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/textsize_m"
+                    android:text="Description"/>
 
-                    <TextView
-                        android:id="@+id/txtLivTime"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="00년 00월 ~ 00년 00월"
-                        android:textColor="@color/dark"
-                        android:textSize="@dimen/textsize_m" />
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -257,7 +225,7 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_price_c96"/>
+                    android:src="@mipmap/ic_address_c192"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -268,7 +236,7 @@
                         android:id="@+id/txtLivPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="1년 500만원"
+                        android:text="서울시 양천구 목동중앙서로 6길 5"
                         android:textColor="@color/dark"
                         android:textSize="@dimen/textsize_m" />
                 </LinearLayout>
@@ -293,18 +261,26 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_bill_c96"/>
+                    android:src="@mipmap/ic_clock_c192"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:orientation="vertical"
                     android:layout_marginRight="20dp">
 
                     <TextView
-                        android:id="@+id/txtLivBill"
+                        android:id="@+id/txtStrClose"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="월 5만원"
+                        android:text="영업중"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/textsize_m" />
+                    <TextView
+                        android:id="@+id/txtStrTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="AM 09:00 ~ PM 05:30"
                         android:textColor="@color/dark"
                         android:textSize="@dimen/textsize_m" />
                 </LinearLayout>
@@ -316,7 +292,46 @@
                 android:layout_height="1dp"
                 android:background="@color/border"/>
             <LinearLayout
-                android:id="@+id/itemLivBuiltin"
+                android:id="@+id/itemStrCallItem"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:foreground="?android:selectableItemBackground">
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"/>
+                <ImageView
+                    android:id="@+id/imgStrCall"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:paddingRight="20dp"
+                    android:src="@mipmap/ic_phone_c192"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:id="@+id/txtStrCall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="010-5049-2747"
+                        android:textColor="@color/dark"
+                        android:textSize="@dimen/textsize_m" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
+            <LinearLayout
+                android:id="@+id/itemStrMenu"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:orientation="horizontal"
@@ -326,11 +341,11 @@
                     android:layout_width="20dp"
                     android:layout_height="70dp"/>
                 <ImageView
-                    android:id="@+id/imgLivBuiltin"
+                    android:id="@+id/imgStrMenu"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_builtin_c96"/>
+                    android:src="@mipmap/ic_menuboard_c192"/>
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -341,10 +356,10 @@
                         android:layout_marginRight="20dp">
 
                         <TextView
-                            android:id="@+id/txtStoreItem"
+                            android:id="@+id/txtStrMenu"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="부대시설"
+                            android:text="메뉴 보기"
                             android:textColor="@color/dark"
                             android:textSize="@dimen/textsize_m" />
                     </LinearLayout>
@@ -358,73 +373,259 @@
                 </FrameLayout>
 
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/border"/>
+
             <LinearLayout
-                android:id="@+id/itemLivReview"
+                android:id="@+id/itemReSum"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
+                android:layout_height="150dp"
+                android:orientation="vertical"
                 android:foreground="?android:selectableItemBackground"
-                android:paddingTop="20dp">
-                <View
-                    android:layout_width="20dp"
-                    android:layout_height="50dp"/>
-                <ImageView
-                    android:id="@+id/imgLivReview"
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:paddingRight="20dp"
-                    android:src="@mipmap/ic_review_c96"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 요약"
+                    android:textColor="@color/dark"
+                    android:textSize="@dimen/textsize_l"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginRight="20dp">
+                    android:weightSum="2"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+                            <TextView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:text="5"
+                                android:textColor="@color/colorPrimary"/>
+                            <ImageView
+                                android:contentDescription="@string/app_name"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@mipmap/ic_rate_filled_c192"
+                                android:layout_marginRight="5dp"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="100">
+                                <View
+                                    android:id="@+id/viewRateBar5"
+                                    android:layout_weight="70"
+                                    android:layout_width="0dp"
+                                    android:layout_height="16dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+                            <TextView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:text="4"
+                                android:textColor="@color/colorPrimary"/>
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@mipmap/ic_rate_filled_c192"
+                                android:layout_marginRight="5dp"
+                                android:contentDescription="@string/app_name" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="100">
+                                <View
+                                    android:id="@+id/viewRateBar4"
+                                    android:layout_weight="20"
+                                    android:layout_width="0dp"
+                                    android:layout_height="16dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+                            <TextView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:text="3"
+                                android:textColor="@color/colorPrimary"/>
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@mipmap/ic_rate_filled_c192"
+                                android:layout_marginRight="5dp"
+                                android:contentDescription="@string/app_name" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="100">
+                                <View
+                                    android:id="@+id/viewRateBar3"
+                                    android:layout_weight="5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="16dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+                            <TextView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:text="2"
+                                android:textColor="@color/colorPrimary"/>
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@mipmap/ic_rate_filled_c192"
+                                android:layout_marginRight="5dp"
+                                android:contentDescription="@string/app_name" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="100">
+                                <View
+                                    android:id="@+id/viewRateBar2"
+                                    android:layout_weight="42"
+                                    android:layout_width="0dp"
+                                    android:layout_height="16dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp">
+                            <TextView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:text="1"
+                                android:textColor="@color/colorPrimary"/>
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@mipmap/ic_rate_filled_c192"
+                                android:layout_marginRight="5dp"
+                                android:contentDescription="@string/app_name" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:weightSum="100">
+                                <View
+                                    android:id="@+id/viewRateBar1"
+                                    android:layout_weight="21"
+                                    android:layout_width="0dp"
+                                    android:layout_height="16dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/textRateAve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="5.0"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="50sp"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/ic_rate50_c48"/>
+                        <LinearLayout
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/textsize_xl"
+                                android:textColor="@color/colorPrimary"
+                                android:text="리뷰 "/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/textsize_xl"
+                                android:textColor="@color/colorPrimary"
+                                android:text="2"/>
+                            <TextView
+                                android:id="@+id/txtReCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/textsize_xl"
+                                android:textColor="@color/colorPrimary"
+                                android:text="개"/>
+                        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="리뷰"
-                        android:textColor="@color/dark"
-                        android:textSize="@dimen/textsize_m" />
+                    </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/border"/>
+
             <LinearLayout
+                android:id="@+id/itemStrRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="70dp"
-                android:layout_marginRight="20dp">
-                <View
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"/>
+                android:orientation="vertical"
+                android:foreground="?android:selectableItemBackground"
+                android:layout_margin="20dp">
+                <ImageView
+                    android:id="@+id/imgUsrProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/logo_rounded"/>
                 <TextView
-                    android:layout_marginRight="30dp"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem"
-                    android:textColor="@color/dark"/>
-                <View
-                    android:layout_width="30dp"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
-        </LinearLayout>
+                    android:text="평점 및 리뷰"
+                    android:textSize="@dimen/textsize_xl"
+                    android:textColor="@color/dark"
+                    android:layout_marginTop="7dp"/>
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:max="5"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_marginTop="7dp"/>
 
+
+            </LinearLayout>
+
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_height="55dp"
-        android:layout_width="55dp"
-        app:layout_anchor="@id/app_bar_layout"
-        android:layout_marginRight="20dp"
-        app:layout_anchorGravity="bottom|right|end"
-        android:src="@mipmap/ic_bookmark_w192"/>
 
 </android.support.design.widget.CoordinatorLayout>
