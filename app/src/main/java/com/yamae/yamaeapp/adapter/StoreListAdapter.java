@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -118,7 +119,12 @@ public class StoreListAdapter extends RecyclerView.Adapter{
                     goNext.putExtra("Title",curItem.getTitle());
                     goNext.putExtra("Desc","asdfasdf");
                     goNext.putExtra("id",curItem.getId());
+                    Log.e("Asdf","id is "+curItem.getId());
                     goNext.putExtra("bookmark",curItem.getBookmark());
+                    goNext.putExtra("phoneNum",curItem.getPhoneNum());
+                    goNext.putExtra("startTime",curItem.getStartTime());
+                    goNext.putExtra("endTime",curItem.getEndTime());
+                    goNext.putExtra("address",curItem.getAddress());
                     mContext.startActivity(goNext);
                 }
             });

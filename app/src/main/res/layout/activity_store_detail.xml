@@ -75,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="true"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- 밑에 내용-->
@@ -86,39 +87,39 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp">
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:id="@+id/itemStrDetCall"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:foreground="?android:selectableItemBackground"
                     android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
                         android:paddingTop="10dp"
-                        android:src="@mipmap/ic_phone_c192"
-                        android:layout_gravity="center_horizontal"/>
+                        android:src="@mipmap/ic_phone_c192" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="32dp"
                         android:layout_gravity="bottom"
                         android:gravity="center_horizontal|center_vertical"
-                        android:text="전화"/>
+                        android:text="전화" />
                 </FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/itemStrDetShare"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:foreground="?android:selectableItemBackground"
                     android:orientation="vertical">
 
@@ -140,8 +141,8 @@
                 <FrameLayout
                     android:id="@+id/itemStrDetRand"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:foreground="?android:selectableItemBackground"
                     android:orientation="vertical">
 
@@ -163,8 +164,8 @@
                 <FrameLayout
                     android:id="@+id/itemStrDetEditPropose"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:foreground="?android:selectableItemBackground"
                     android:orientation="vertical">
 
@@ -187,21 +188,22 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
 
             <LinearLayout
                 android:id="@+id/itemLivTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:foreground="?android:selectableItemBackground">
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
+                    android:text="Description"
                     android:textColor="@color/dark"
-                    android:textSize="@dimen/textsize_m"
-                    android:text="Description"/>
+                    android:textSize="@dimen/textsize_m" />
 
 
             </LinearLayout>
@@ -209,28 +211,31 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
 
             <LinearLayout
                 android:id="@+id/itemLivPrice"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:foreground="?android:selectableItemBackground">
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="horizontal">
+
                 <View
                     android:layout_width="20dp"
-                    android:layout_height="70dp"/>
+                    android:layout_height="70dp" />
+
                 <ImageView
                     android:id="@+id/imgLivPrice"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_address_c192"/>
+                    android:src="@mipmap/ic_address_c192" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginRight="20dp">
+                    android:layout_marginRight="20dp"
+                    android:gravity="center_vertical">
 
                     <TextView
                         android:id="@+id/txtLivPrice"
@@ -246,28 +251,32 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
+
             <LinearLayout
                 android:id="@+id/itemLivBill"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:foreground="?android:selectableItemBackground">
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="horizontal">
+
                 <View
                     android:layout_width="20dp"
-                    android:layout_height="70dp"/>
+                    android:layout_height="70dp" />
+
                 <ImageView
                     android:id="@+id/imgLivBill"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_clock_c192"/>
+                    android:src="@mipmap/ic_clock_c192" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
                     android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:layout_marginRight="20dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtStrClose"
@@ -276,6 +285,7 @@
                         android:text="영업중"
                         android:textColor="@color/dark"
                         android:textSize="@dimen/textsize_m" />
+
                     <TextView
                         android:id="@+id/txtStrTime"
                         android:layout_width="match_parent"
@@ -290,28 +300,32 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
+
             <LinearLayout
                 android:id="@+id/itemStrCallItem"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:foreground="?android:selectableItemBackground">
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="horizontal">
+
                 <View
                     android:layout_width="20dp"
-                    android:layout_height="70dp"/>
+                    android:layout_height="70dp" />
+
                 <ImageView
                     android:id="@+id/imgStrCall"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_phone_c192"/>
+                    android:src="@mipmap/ic_phone_c192" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
                     android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:layout_marginRight="20dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtStrCall"
@@ -328,32 +342,36 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
 
             <LinearLayout
                 android:id="@+id/itemStrMenu"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:orientation="horizontal"
                 android:layout_marginRight="20dp"
-                android:foreground="?android:selectableItemBackground">
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="horizontal">
+
                 <View
                     android:layout_width="20dp"
-                    android:layout_height="70dp"/>
+                    android:layout_height="70dp" />
+
                 <ImageView
                     android:id="@+id/imgStrMenu"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:paddingRight="20dp"
-                    android:src="@mipmap/ic_menuboard_c192"/>
+                    android:src="@mipmap/ic_menuboard_c192" />
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:layout_marginRight="20dp">
+                        android:layout_marginRight="20dp"
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:id="@+id/txtStrMenu"
@@ -363,190 +381,229 @@
                             android:textColor="@color/dark"
                             android:textSize="@dimen/textsize_m" />
                     </LinearLayout>
-                    <ImageButton
+
+                    <Button
+                        android:id="@+id/btn_listvisible"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:background="@mipmap/ic_folded_c192"
                         android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="20dp"/>
+                        android:layout_marginRight="20dp"
+                        android:background="@mipmap/ic_folded_c192" />
 
                 </FrameLayout>
 
             </LinearLayout>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
 
             <LinearLayout
                 android:id="@+id/itemReSum"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:orientation="vertical"
-                android:foreground="?android:selectableItemBackground"
-                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:foreground="?android:selectableItemBackground"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="리뷰 요약"
                     android:textColor="@color/dark"
-                    android:textSize="@dimen/textsize_l"/>
+                    android:textSize="@dimen/textsize_l" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="2"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
-                    android:baselineAligned="false">
+                    android:weightSum="2">
+
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="7dp">
+
                             <TextView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:text="5"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
+
                             <ImageView
-                                android:contentDescription="@string/app_name"
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
-                                android:src="@mipmap/ic_rate_filled_c192"
-                                android:layout_marginRight="5dp"/>
+                                android:layout_marginRight="5dp"
+                                android:contentDescription="@string/app_name"
+                                android:src="@mipmap/ic_rate_filled_c192" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:weightSum="100">
+
                                 <View
                                     android:id="@+id/viewRateBar5"
-                                    android:layout_weight="70"
                                     android:layout_width="0dp"
                                     android:layout_height="16dp"
-                                    android:background="@color/colorPrimary"/>
+                                    android:layout_weight="70"
+                                    android:background="@color/colorPrimary" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="7dp">
+
                             <TextView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:text="4"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
+
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
-                                android:src="@mipmap/ic_rate_filled_c192"
                                 android:layout_marginRight="5dp"
-                                android:contentDescription="@string/app_name" />
+                                android:contentDescription="@string/app_name"
+                                android:src="@mipmap/ic_rate_filled_c192" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:weightSum="100">
+
                                 <View
                                     android:id="@+id/viewRateBar4"
-                                    android:layout_weight="20"
                                     android:layout_width="0dp"
                                     android:layout_height="16dp"
-                                    android:background="@color/colorPrimary"/>
+                                    android:layout_weight="20"
+                                    android:background="@color/colorPrimary" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="7dp">
+
                             <TextView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:text="3"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
+
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
-                                android:src="@mipmap/ic_rate_filled_c192"
                                 android:layout_marginRight="5dp"
-                                android:contentDescription="@string/app_name" />
+                                android:contentDescription="@string/app_name"
+                                android:src="@mipmap/ic_rate_filled_c192" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:weightSum="100">
+
                                 <View
                                     android:id="@+id/viewRateBar3"
-                                    android:layout_weight="5"
                                     android:layout_width="0dp"
                                     android:layout_height="16dp"
-                                    android:background="@color/colorPrimary"/>
+                                    android:layout_weight="5"
+                                    android:background="@color/colorPrimary" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="7dp">
+
                             <TextView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:text="2"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
+
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
-                                android:src="@mipmap/ic_rate_filled_c192"
                                 android:layout_marginRight="5dp"
-                                android:contentDescription="@string/app_name" />
+                                android:contentDescription="@string/app_name"
+                                android:src="@mipmap/ic_rate_filled_c192" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:weightSum="100">
+
                                 <View
                                     android:id="@+id/viewRateBar2"
-                                    android:layout_weight="42"
                                     android:layout_width="0dp"
                                     android:layout_height="16dp"
-                                    android:background="@color/colorPrimary"/>
+                                    android:layout_weight="42"
+                                    android:background="@color/colorPrimary" />
                             </LinearLayout>
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="7dp">
+
                             <TextView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
                                 android:text="1"
-                                android:textColor="@color/colorPrimary"/>
+                                android:textColor="@color/colorPrimary" />
+
                             <ImageView
                                 android:layout_width="16dp"
                                 android:layout_height="16dp"
-                                android:src="@mipmap/ic_rate_filled_c192"
                                 android:layout_marginRight="5dp"
-                                android:contentDescription="@string/app_name" />
+                                android:contentDescription="@string/app_name"
+                                android:src="@mipmap/ic_rate_filled_c192" />
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:weightSum="100">
+
                                 <View
                                     android:id="@+id/viewRateBar1"
-                                    android:layout_weight="21"
                                     android:layout_width="0dp"
                                     android:layout_height="16dp"
-                                    android:background="@color/colorPrimary"/>
+                                    android:layout_weight="21"
+                                    android:background="@color/colorPrimary" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/textRateAve"
                             android:layout_width="wrap_content"
@@ -554,72 +611,81 @@
                             android:layout_gravity="center_horizontal"
                             android:text="5.0"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="50sp"/>
+                            android:textSize="50sp" />
+
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:src="@mipmap/ic_rate50_c48"/>
+                            android:src="@mipmap/ic_rate50_c48" />
+
                         <LinearLayout
-                            android:gravity="center"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/textsize_xl"
+                                android:text="리뷰 "
                                 android:textColor="@color/colorPrimary"
-                                android:text="리뷰 "/>
+                                android:textSize="@dimen/textsize_xl" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/textsize_xl"
+                                android:text="2"
                                 android:textColor="@color/colorPrimary"
-                                android:text="2"/>
+                                android:textSize="@dimen/textsize_xl" />
+
                             <TextView
                                 android:id="@+id/txtReCount"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="@dimen/textsize_xl"
+                                android:text="개"
                                 android:textColor="@color/colorPrimary"
-                                android:text="개"/>
+                                android:textSize="@dimen/textsize_xl" />
                         </LinearLayout>
 
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/border"/>
+                android:background="@color/border" />
 
             <LinearLayout
                 android:id="@+id/itemStrRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_margin="20dp"
                 android:foreground="?android:selectableItemBackground"
-                android:layout_margin="20dp">
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/imgUsrProfile"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:src="@mipmap/logo_rounded"/>
+                    android:src="@mipmap/logo_rounded" />
+
                 <TextView
-                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:gravity="center"
                     android:text="평점 및 리뷰"
-                    android:textSize="@dimen/textsize_xl"
                     android:textColor="@color/dark"
-                    android:layout_marginTop="7dp"/>
+                    android:textSize="@dimen/textsize_xl" />
+
                 <RatingBar
                     android:id="@+id/ratingBar"
-                    android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:max="5"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="7dp"
                     android:backgroundTint="@color/colorPrimary"
-                    android:layout_marginTop="7dp"/>
+                    android:max="5" />
 
 
             </LinearLayout>

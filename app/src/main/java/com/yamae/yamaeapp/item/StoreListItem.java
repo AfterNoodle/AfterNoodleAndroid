@@ -1,5 +1,7 @@
 package com.yamae.yamaeapp.item;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -60,8 +62,9 @@ public class StoreListItem {
             this.startTime = o.getString("startTime");
             this.endTime = o.getString("endTime");
             this.address = o.getString("address");
-            this.id = o.getInt("storeId");
+            this.id = o.getInt("id");
             this.isDelivery = o.getBoolean("isDelivery");
+            Log.e("asdf",o.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
